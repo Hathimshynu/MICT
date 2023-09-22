@@ -1,0 +1,74 @@
+<link rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"/>
+<link rel="stylesheet" src="https://cdn.datatables.net/1.13.2/css/dataTables.bootstrap5.min.css"/>
+<style>
+    div#example_wrapper {
+    margin: 20px;
+}
+.col-sm-12 {
+    overflow: auto;
+}
+</style>
+
+<?php include 'header.php';?>
+
+      <div class="container-fluid content-inner pb-0">
+      <div class="row">
+          <div class="col-lg-12">
+             <div class="card">
+                 <div class="card-header">
+                    <h4 class="card-title mb-0">Direct Income</h4>
+                </div>
+                 <table id="" class="table" style="width:100%">
+        <thead>
+            <tr>
+                <th>SL.no</th>
+                <th>Credited Date</th>
+                <th>User name</th>
+                <th>E-wallet</th>
+                <th>Withdraw Wallet</th>
+            </tr>
+        </thead>
+        <tbody>
+           <tbody>
+            <?php $direct = $this->db->where('username',$this->session->userdata('micusername'))->where('remark','Direct income')->where('entry_date <=',date('Y-m-d H:i:s'))->get('account')->result_array();
+            $count =1;
+            foreach($direct as $key => $dir)
+            {
+            ?>
+            <tr>
+                <td><?=$count++;?></td>
+                <td><?=date("d/m/Y", strtotime($dir['entry_date']));;?></td>
+                <td><?=$dir['description']?></td>
+                <td><?=$dir['ewallet']?></td>
+                <td><?=$dir['credit']?></td>
+            </tr>
+           <?php } ?>  
+        </tbody>
+
+        </tbody>
+
+    </table>
+             </div>
+          </div>
+      </div>
+   
+ </div>         
+    
+   
+
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/dataTables.bootstrap5.min.js"></script>
+<script>
+   $(document).ready(function () {
+    $('#example').DataTable();
+}); 
+</script>
+
+<?php include 'footer.php';?>

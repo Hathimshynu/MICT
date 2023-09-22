@@ -1,0 +1,49 @@
+
+/*Custom CSS*/
+
+.dataTables_filter{
+    margin-bottom:10px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6a5f5f96 !important;
+    border-radius: 20px !important;
+    transition: all 400ms ease !important;
+    cursor: pointer !important;
+}
+
+::-webkit-scrollbar-track {
+    background: lightgrey !important;
+    border-radius: 20px !important;
+}
+
+
+
+@media screen And (max-width:500px){
+    .dataTables_length{
+        margin-bottom:10px !important;
+    }
+    ::-webkit-scrollbar {
+    width: 8px !important;
+    height: 4px !important;
+}
+
+div.dataTables_wrapper div.dataTables_filter input {
+   
+    width: 206px !important;
+    height: 30px !important;
+}
+
+}
+
+@media screen and (min-width:768px){
+    .dataTables_paginate.paging_simple_numbers{
+        margin-top:18px !important;
+    }
+}
+
+.page-item.active .page-link {
+    color: white !important;
+   background-color: #3c41da !important;
+    border-color: #3c41da !important;
+}
